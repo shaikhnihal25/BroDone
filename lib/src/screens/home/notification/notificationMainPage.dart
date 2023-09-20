@@ -15,6 +15,9 @@ class _NotificationMainPageState extends State<NotificationMainPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.scaffoldBackgroundColor,
+      appBar: AppBar(
+        title: Text("Notifications & Alerts"),
+      ),
       body: SafeArea(
           child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,

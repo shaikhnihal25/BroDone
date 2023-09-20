@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 import '../constants/color-constants.dart';
@@ -103,6 +104,57 @@ class _SimpleTextFieldState extends State<SimpleTextField> {
                     )
                   : SizedBox()),
         ).pOnly(right: 20, left: 20),
+      ),
+    );
+  }
+}
+
+class ChatTextField extends StatefulWidget {
+  void Function()? onSend;
+  void Function()? onFile;
+  TextEditingController? controller;
+  ChatTextField({super.key, this.onSend, this.controller, this.onFile});
+
+  @override
+  State<ChatTextField> createState() => _ChatTextFieldState();
+}
+
+class _ChatTextFieldState extends State<ChatTextField> {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 12),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(12),
+        color: AppColors.backgroundColor, // Background color
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey[400]!,
+            blurRadius: 5,
+            offset: const Offset(0, 2),
+          ),
+        ],
+      ),
+      child: Row(
+        children: <Widget>[
+          IconButton(
+            icon: const Icon(Icons.image),
+            onPressed: widget.onFile,
+          ),
+          Expanded(
+            child: TextField(
+              controller: widget.controller,
+              decoration: const InputDecoration(
+                hintText: 'Search...',
+                border: InputBorder.none,
+              ),
+            ),
+          ),
+          IconButton(
+            icon: const Icon(Icons.send),
+            onPressed: widget.onSend,
+          ),
+        ],
       ),
     );
   }

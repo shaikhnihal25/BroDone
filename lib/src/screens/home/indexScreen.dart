@@ -1,3 +1,4 @@
+import 'package:brodone/src/screens/home/chat/chatsMainScreen.dart';
 import 'package:brodone/src/screens/home/explore/exploreMainScreen.dart';
 import 'package:brodone/src/screens/home/homeScreen.dart';
 import 'package:brodone/src/screens/home/notification/notificationMainPage.dart';
@@ -38,7 +39,7 @@ class _IndexScreenState extends State<IndexScreen> {
         children: const [
           HomeScreen(),
           ExploreMainScreen(),
-          NotificationMainPage(),
+          ChatsMainScreen(),
           UserProfilePage()
         ],
         // LecturesScreen(), NotificationScreen(), ProfileScreen()

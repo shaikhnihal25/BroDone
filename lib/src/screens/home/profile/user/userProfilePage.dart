@@ -1,3 +1,4 @@
+import 'package:brodone/src/screens/home/notification/notificationMainPage.dart';
 import 'package:brodone/src/screens/home/profile/user/editProfile.dart';
 import 'package:brodone/src/screens/home/profile/user/settinhScreen.dart';
 import 'package:brodone/src/widgets/dividerwithTitle.dart';
@@ -59,7 +60,7 @@ class _UserProfilePageState extends State<UserProfilePage> {
                         child: const Text("👤 Edit Profile"))),
                 Card(
                     child: TextButton(
-                        onPressed: () {},
+                        onPressed: () => Get.to(() => NotificationMainPage()),
                         child: const Text("🔔 Notifications"))),
                 Card(
                     child: TextButton(
