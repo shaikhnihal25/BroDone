@@ -1,3 +1,4 @@
+import 'package:brodone/src/screens/authentication/register_screen.dart';
 import 'package:brodone/src/screens/home/indexScreen.dart';
 import 'package:brodone/src/screens/intro-screen/intro_screen.dart';
 import 'package:flutter/material.dart';
@@ -21,7 +22,8 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       // home: IntroScreen(),
-      home: IndexScreen(),
+      // home: IndexScreen(),
+      home: RegisterScreen(),
     );
   }
 }

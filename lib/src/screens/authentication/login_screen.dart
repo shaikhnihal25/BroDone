@@ -1,4 +1,5 @@
 import 'package:brodone/src/constants/color-constants.dart';
+import 'package:brodone/src/screens/authentication/register_screen.dart';
 import 'package:brodone/src/screens/home/homeScreen.dart';
 import 'package:brodone/src/utils/controllers/textControllers.dart';
 import 'package:brodone/src/widgets/simpleInputField.dart';
@@ -43,7 +44,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       height: height / 6,
                     ),
                     const Text(
-                      "Brodone - Sign Up",
+                      "Brodone - Sign In",
                       textAlign: TextAlign.center,
                       style: TextStyle(
                           fontSize: 26,
@@ -51,7 +52,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           color: AppColors.textColor),
                     ),
                     const Text(
-                      "Create an account to continue",
+                      "Login your account to continue",
                       textAlign: TextAlign.center,
                       style: TextStyle(
                           fontSize: 18,
@@ -61,11 +62,13 @@ class _LoginScreenState extends State<LoginScreen> {
                     const SizedBox(height: 30),
                     //-------------Email------------------//
                     SimpleTextField(
+                      controller: TextInputControllers.loginEmailController,
                       isEmailError: isEmailError,
                     ),
                     //---------Password-------------//
                     const SizedBox(height: 30),
                     SimplePasswordInputField(
+                      controller: TextInputControllers.loginPasswordController,
                       isPassError: isEmailError,
                     ),
                     const Align(
@@ -135,18 +138,23 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                     ),
                     //--------Sign-Up-Button-------//
-                    RichText(
-                        text: const TextSpan(
-                            text: "Don't have an account?",
-                            style: TextStyle(color: AppColors.textColor),
-                            children: [
-                          TextSpan(
-                              text: "  Sign Up",
-                              style: TextStyle(
-                                  color: AppColors.primaryColor,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 16))
-                        ])).pOnly(top: 20),
+                    InkWell(
+                      onTap: () {
+                        Get.to(() => RegisterScreen());
+                      },
+                      child: RichText(
+                          text: const TextSpan(
+                              text: "Don't have an account?",
+                              style: TextStyle(color: AppColors.textColor),
+                              children: [
+                            TextSpan(
+                                text: "  Sign Up",
+                                style: TextStyle(
+                                    color: AppColors.primaryColor,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 16))
+                          ])).pOnly(top: 20),
+                    ),
 
                     //----------Option-Divider-----------//
                     const Row(
